@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="neurial-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="50%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="neurial-grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer soft triangular loop -->
+  <path d="M24 4C14 4 6 14 8 24C10 34 18 42 28 40C38 38 44 28 40 18C36 8 28 4 24 4Z" fill="url(#neurial-grad)" opacity="0.85"/>
+  <!-- Inner overlapping loop layer -->
+  <path d="M22 10C15 12 10 20 12 28C14 34 22 38 30 34C36 30 38 22 34 16C30 10 24 8 22 10Z" fill="url(#neurial-grad2)"/>
+  <!-- Inner negative space (clarity) -->
+  <path d="M24 16C19 17 15 22 17 28C19 33 25 35 30 32C34 28 34 22 30 18C27 15 24 15 24 16Z" fill="white" opacity="0.9"/>
+  <!-- Neural node highlight dot -->
+  <circle cx="22" cy="14" r="3" fill="white" opacity="0.95"/>
+</svg>
