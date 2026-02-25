@@ -129,12 +129,18 @@ function MagnetizeButton({
 
     return (
         <div
-            ref={wrapperRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="relative inline-flex items-center justify-center p-8 -m-8" // This padded outer div is the STATIC magnetic field interceptor
+            className="relative inline-flex items-center justify-center"
         >
+            {/* Hit area interceptor */}
+            <div
+                ref={wrapperRef}
+                onMouseMove={handleMouseMove}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={onClick}
+                className="absolute -inset-8 z-30 cursor-pointer"
+            />
+
             {/* Particles layer */}
             {particles.map((particle, index) => (
                 <motion.div
@@ -151,7 +157,7 @@ function MagnetizeButton({
                     className={cn(
                         "w-1.5 h-1.5 rounded-full absolute -translate-x-1/2 -translate-y-1/2",
                         "bg-emerald-400 dark:bg-emerald-300",
-                        "transition-opacity duration-300",
+                        "transition-opacity duration-300 z-0",
                         isHovered ? "opacity-100" : "opacity-40"
                     )}
                 />
@@ -160,13 +166,13 @@ function MagnetizeButton({
             <motion.div
                 style={{ x: springX, y: springY }}
                 whileTap={{ scale: 0.95 }}
-                className="relative z-10"
+                className="relative z-10 pointer-events-none"
             >
                 <Button
                     {...restProps}
-                    onClick={onClick}
+                    tabIndex={-1}
                     className={cn(
-                        "min-w-40 relative cursor-pointer select-none",
+                        "min-w-40 relative select-none pointer-events-none",
                         "bg-emerald-50 dark:bg-emerald-900/40",
                         "hover:bg-emerald-100 dark:hover:bg-emerald-800/50",
                         "text-emerald-700 dark:text-emerald-300",
