@@ -1,13 +1,6 @@
 import { motion } from "framer-motion";
-import { useSound } from "@/hooks/useSound";
-import { MagnetizeButton } from "./ui/magnetize-button";
-
-const WHATSAPP_NUMBER = "6281234567890";
-const WHATSAPP_MESSAGE = encodeURIComponent("Hi Neurial! I'd like to discuss a project.");
-const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
 export default function BrandPhilosophy() {
-    const { playSound } = useSound();
     return (
         <section className="py-24 px-6 relative overflow-hidden">
             {/* Background decoration */}
@@ -68,24 +61,7 @@ export default function BrandPhilosophy() {
                             </p>
                         </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 15 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                            className="mt-8 relative z-50"
-                        >
-                            <MagnetizeButton
-                                idleLabel="Let's Connect"
-                                activeLabel="Let's Go!"
-                                particleCount={16}
-                                onClick={() => {
-                                    playSound("click");
-                                    window.open(WHATSAPP_LINK, "_blank", "noopener,noreferrer");
-                                }}
-                                className="h-11 px-8 rounded-xl text-sm font-display font-semibold tracking-wide"
-                            />
-                        </motion.div>
+
                     </motion.div>
                 </div>
             </div>
