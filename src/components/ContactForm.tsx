@@ -84,7 +84,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-20 px-6 bg-secondary/50">
+    <section id="contact" className="py-20 px-6 bg-secondary/50 relative z-[9999]">
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left — Info */}
@@ -122,7 +122,7 @@ export default function ContactForm() {
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4"
+            className="space-y-4 relative z-50"
           >
             <div>
               <Input
