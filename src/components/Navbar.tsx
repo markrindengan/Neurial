@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSound } from "@/hooks/useSound";
 
-const WHATSAPP_NUMBER = "6281234567890";
+const WHATSAPP_NUMBER = "6281342890650";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hi Neurial! I'm interested in your services.");
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 

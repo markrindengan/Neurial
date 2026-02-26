@@ -2,13 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, Bot, Globe, ShoppingBag, Sparkles, Zap } from "lucide-react";
 import { useSound } from "@/hooks/useSound";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { Robot3D } from "./Robot3D";
 import { GlowCard } from "./GlowCard";
-
-const WHATSAPP_NUMBER = "6281234567890";
-const WHATSAPP_MESSAGE = encodeURIComponent("Hi Neurial! I'd like to discuss a project.");
-const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -103,10 +100,8 @@ export default function Hero() {
             </motion.p>
 
             <motion.div {...fadeUp(0.4)}>
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/auth"
                 onMouseEnter={() => playSound("hover")}
                 onClick={() => playSound("click")}
                 className="group flex w-fit items-center gap-5 font-display text-sm md:text-base font-semibold text-foreground tracking-wide uppercase transition-all duration-300"
@@ -118,7 +113,7 @@ export default function Hero() {
                   Start Your Project
                   <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#10b981] transform scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
                 </span>
-              </a>
+              </Link>
             </motion.div>
 
           </div>

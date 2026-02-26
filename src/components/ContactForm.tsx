@@ -105,7 +105,7 @@ export default function ContactForm() {
               hours. Or reach us directly on WhatsApp for a faster response.
             </p>
             <a
-              href="https://wa.me/6281234567890?text=Hi%20Neurial!%20I'd%20like%20to%20discuss%20a%20project."
+              href="https://wa.me/6281342890650?text=Hi%20Neurial!%20I'd%20like%20to%20discuss%20a%20project."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-body text-sm text-foreground/60 hover:text-foreground transition-colors"
