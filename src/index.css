@@ -290,15 +290,7 @@
   }
 }
 
-/* Constrain ElevenLabs widget so its invisible overlay
-   does not intercept pointer events across the page */
+/* Ensure ElevenLabs widget renders above all other content */
 elevenlabs-convai {
-  position: fixed !important;
-  bottom: 16px !important;
-  right: 16px !important;
-  width: 80px !important;
-  height: 80px !important;
   z-index: 9998 !important;
-  overflow: visible !important;
-  pointer-events: auto !important;
 }
