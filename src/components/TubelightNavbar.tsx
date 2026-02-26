@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { LucideIcon, Home, Briefcase, User, Mail, Sparkles } from "lucide-react";
+import { LucideIcon, Home, Briefcase, User, Mail, LogIn, LayoutDashboard } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 interface NavItem {
     name: string;
@@ -27,15 +28,25 @@ const defaultItems: NavItem[] = [
 export function TubelightNavbar({ items = defaultItems, className }: TubelightNavbarProps) {
     const [activeTab, setActiveTab] = useState(items[0].name);
     const [isMobile, setIsMobile] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
-
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data }) => {
+            setIsLoggedIn(!!data.session);
+        });
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setIsLoggedIn(!!session);
+        });
+        return () => subscription.unsubscribe();
     }, []);
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
@@ -57,6 +68,24 @@ export function TubelightNavbar({ items = defaultItems, className }: TubelightNa
 
     return (
         <>
+            {/* Sign In / Dashboard button - top right */}
+            <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50">
+                <Link
+                    to={isLoggedIn ? "/dashboard" : "/auth"}
+                    className={cn(
+                        "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200",
+                        "border border-border/60 bg-background/60 backdrop-blur-md shadow-sm",
+                        "hover:bg-background hover:shadow-md hover:border-border",
+                        "text-foreground/80 hover:text-foreground"
+                    )}
+                >
+                    {isLoggedIn
+                        ? <><LayoutDashboard className="w-4 h-4" /><span className="hidden sm:inline">Dashboard</span></>
+                        : <><LogIn className="w-4 h-4" /><span className="hidden sm:inline">Sign In</span></>
+                    }
+                </Link>
+            </div>
+
             {/* Logo - only visible on desktop */}
             <div className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 hidden md:block">
                 <Link

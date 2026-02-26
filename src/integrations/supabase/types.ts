@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      website_profiles: {
+        Row: {
+          id: string
+          user_id: string
+          website_url: string | null
+          goal: string | null
+          monthly_income: number | null
+          client_count: number | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          website_url?: string | null
+          goal?: string | null
+          monthly_income?: number | null
+          client_count?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          website_url?: string | null
+          goal?: string | null
+          monthly_income?: number | null
+          client_count?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           budget: string | null
