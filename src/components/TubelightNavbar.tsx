@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { LucideIcon, Home, Briefcase, User, Mail, LogIn, LayoutDashboard } from "lucide-react";
+import { LucideIcon, Home, Briefcase, Layers, User, Mail, LogIn, LayoutDashboard } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useMagnetic } from "@/hooks/useMagnetic";
@@ -22,6 +22,7 @@ interface TubelightNavbarProps {
 const defaultItems: NavItem[] = [
     { name: "Home", url: "/", icon: Home },
     { name: "Services", url: "#services", icon: Briefcase },
+    { name: "Portfolio", url: "#portfolio", icon: Layers },
     { name: "About", url: "#about", icon: User },
     { name: "Contact", url: "#contact", icon: Mail },
 ];

@@ -44,8 +44,8 @@ const Index = () => {
         <Testimonials />
         <BrandPhilosophy />
         <About />
+        <ContactForm />
       </main>
-      <ContactForm />
       <Footer />
       <WhatsAppButton />
     </div>

@@ -73,7 +73,7 @@ export default function Services() {
                   <div className="w-10 h-10 rounded-xl bg-white/50 flex items-center justify-center">
                     <service.icon className="w-5 h-5 text-foreground/70" />
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-foreground/20 group-hover:text-foreground/50 transition-colors" />
+                  <ArrowUpRight aria-hidden="true" className="w-4 h-4 text-foreground/20 group-hover:text-foreground/50 transition-colors" />
                 </div>
 
                 <h3 className="font-display text-lg font-bold mb-2">{service.title}</h3>

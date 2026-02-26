@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 import { useSound } from "@/hooks/useSound";
 import { GlowCard } from "./GlowCard";
+
+const WHATSAPP_LINK = "https://wa.me/6281342890650?text=Hi%20Neurial!%20I'd%20like%20a%20free%20consultation.";
 
 const stats = [
   {
@@ -54,7 +57,7 @@ export default function About() {
               Indonesian market. Every project is built for speed, simplicity,
               and real business results.
             </p>
-            <ul className="space-y-3 font-body text-sm">
+            <ul className="space-y-3 font-body text-sm mb-8">
               {[
                 "Free initial consultation and project scoping",
                 "Transparent pricing — no hidden fees",
@@ -66,6 +69,15 @@ export default function About() {
                 </li>
               ))}
             </ul>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors duration-200"
+            >
+              <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
+              <span className="underline underline-offset-2">Get a free consultation on WhatsApp</span>
+            </a>
           </motion.div>
 
           {/* Right — Stat cards */}

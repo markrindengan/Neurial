@@ -2,10 +2,13 @@ import { motion } from "framer-motion";
 import { ArrowRight, Bot, Globe, ShoppingBag, Sparkles, Zap } from "lucide-react";
 import { useSound } from "@/hooks/useSound";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { Robot3D } from "./Robot3D";
 import { GlowCard } from "./GlowCard";
+
+const WHATSAPP_NUMBER = "6281342890650";
+const WHATSAPP_MESSAGE = encodeURIComponent("Hi Neurial! I'd like to start a project.");
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -88,7 +91,7 @@ export default function Hero() {
             >
               Intelligence<br />
               <span
-                className="italic font-light tracking-[-0.06em] transition-all duration-500 ease-out cursor-default text-muted-foreground/30 hover:text-[#10b981] hover:[text-shadow:0_0_30px_rgba(16,185,129,0.5),0_0_60px_rgba(16,185,129,0.25)]"
+                className="italic font-light tracking-[-0.06em] transition-all duration-300 ease-out cursor-default text-muted-foreground/30 hover:text-[#10b981] hover:[text-shadow:0_0_30px_rgba(16,185,129,0.5),0_0_60px_rgba(16,185,129,0.25)]"
               >meets</span> Design.
             </motion.h1>
 
@@ -100,8 +103,10 @@ export default function Hero() {
             </motion.p>
 
             <motion.div {...fadeUp(0.4)}>
-              <Link
-                to="/auth"
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 onMouseEnter={() => playSound("hover")}
                 onClick={() => playSound("click")}
                 className="group flex w-fit items-center gap-5 font-display text-sm md:text-base font-semibold text-foreground tracking-wide uppercase transition-all duration-300"
@@ -113,7 +118,7 @@ export default function Hero() {
                   Start Your Project
                   <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#10b981] transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 </span>
-              </Link>
+              </a>
             </motion.div>
 
           </div>

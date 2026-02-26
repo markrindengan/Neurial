@@ -11,6 +11,9 @@ export default function CursorTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    // Skip on touch-only devices — cursor trail has no effect without a mouse
+    if (window.matchMedia("(hover: none)").matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -64,6 +67,7 @@ export default function CursorTrail() {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 9997 }}
     />
   );

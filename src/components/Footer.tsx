@@ -1,3 +1,4 @@
+import type { MouseEvent } from "react";
 import { Link } from "react-router-dom";
 
 const footerLinks = [
@@ -8,7 +9,7 @@ const footerLinks = [
 ];
 
 export default function Footer() {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };

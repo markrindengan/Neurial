@@ -72,7 +72,7 @@ export default function Portfolio() {
                                         {project.category}
                                     </span>
                                     <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                        <ArrowUpRight className="w-3.5 h-3.5 text-foreground/60" />
+                                        <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5 text-foreground/60" />
                                     </div>
                                 </div>
 

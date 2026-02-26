@@ -27,11 +27,15 @@ export default function NeuralBackground() {
       canvas.height = window.innerHeight;
     };
 
+    const isMobile = window.innerWidth < 768;
+
     const spawn = () => {
       dots = [];
+      const maxDots = isMobile ? 40 : 140;
+      const density = isMobile ? 20000 : 13000;
       const count = Math.min(
-        Math.floor((canvas.width * canvas.height) / 13000),
-        140
+        Math.floor((canvas.width * canvas.height) / density),
+        maxDots
       );
       for (let i = 0; i < count; i++) {
         dots.push({
@@ -127,6 +131,7 @@ export default function NeuralBackground() {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}
     />
   );
