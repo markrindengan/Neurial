@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirm Your Neurial Account</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      max-width: 580px;
+      margin: 40px auto;
+      padding: 0 16px 40px;
+    }
+    .logo-row {
+      text-align: center;
+      padding: 32px 0 28px;
+    }
+    .logo-row span {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #0f172a;
+    }
+    .logo-row .dot {
+      color: #10b981;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      padding: 48px 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0fdf9;
+      border: 1px solid #a7f3d0;
+      color: #059669;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #0f172a;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #64748b;
+      margin-bottom: 32px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #0f172a;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 14px 32px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 28px 0;
+    }
+    .link-fallback {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .link-fallback a {
+      color: #10b981;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    .expiry-notice {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 20px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .footer p {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+    .footer a {
+      color: #64748b;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #10b981;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="logo-row">
+      <span>Neurial<span class="dot">.</span></span>
+    </div>
+
+    <div class="card">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Account Verification
+      </div>
+
+      <h1>Confirm your email address</h1>
+
+      <p class="subtitle">
+        Welcome to Neurial! You're one step away from accessing your account.
+        Click the button below to verify your email address and get started.
+      </p>
+
+      <a href="{{ .ConfirmationURL }}" class="cta-btn">
+        ✓ &nbsp;Confirm My Account
+      </a>
+
+      <hr class="divider" />
+
+      <p class="link-fallback">
+        Button not working? Copy and paste this link into your browser:
+      </p>
+      <p class="link-fallback">
+        <a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a>
+      </p>
+
+      <p class="expiry-notice">
+        This link will expire in 24 hours. If you didn't create a Neurial account, you can safely ignore this email.
+      </p>
+    </div>
+
+    <div class="footer">
+      <p>
+        &copy; 2026 Neurial &mdash; AI Development Studio, Indonesia<br />
+        <a href="https://neurial.id">neurial.id</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
