@@ -35,7 +35,7 @@ export default function Auth() {
               full_name: fullName,
               website_url: website,
             },
-            emailRedirectTo: `${window.location.origin}/dashboard`,
+            emailRedirectTo: `${import.meta.env.VITE_SITE_URL || window.location.origin}/dashboard`,
           },
         });
         if (error) throw error;
@@ -53,7 +53,7 @@ export default function Auth() {
     setLoading(true);
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/reset-password`,
+        redirectTo: `${import.meta.env.VITE_SITE_URL || window.location.origin}/reset-password`,
       });
       if (error) throw error;
       toast.success("Reset link sent — check your inbox!");
