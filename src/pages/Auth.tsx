@@ -7,6 +7,7 @@ import {
   Mail, User, Globe, Lock, ArrowRight, Eye, EyeOff,
   ArrowLeft, Check, TrendingUp,
 } from "lucide-react";
+import { useCard3D } from "@/hooks/useCard3D";
 
 type Mode = "login" | "signup" | "forgot";
 
@@ -19,6 +20,7 @@ export default function Auth() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const card3D = useCard3D(8);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -250,7 +252,19 @@ export default function Auth() {
             className="w-full max-w-md"
           >
             {/* Card */}
-            <div className="relative rounded-3xl border border-border/60 bg-card/80 backdrop-blur-xl shadow-2xl shadow-black/5 overflow-hidden">
+            <div
+              {...card3D}
+              className="relative rounded-3xl shadow-2xl overflow-hidden"
+              style={{
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                background: "linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.72) 100%)",
+                border: "1px solid rgba(255,255,255,0.55)",
+                boxShadow: "0 20px 60px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.9)",
+              }}
+            >
+              {/* Glare overlay */}
+              <div className="card-glare" />
               {/* Top gradient accent */}
               <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#10b981]/40 to-transparent" />
 
@@ -477,30 +491,29 @@ function FloatingInput({ type, label, value, onChange, icon, required, minLength
 
 function SubmitButton({ loading, label }: { loading: boolean; label: string }) {
   return (
-    <motion.button
+    <button
       type="submit"
       disabled={loading}
-      whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 0.98 }}
       className={`
-        w-full h-12 rounded-2xl font-display font-semibold text-sm
-        flex items-center justify-center gap-2
+        btn-liquid w-full h-12 rounded-2xl font-display font-semibold text-sm
         bg-foreground text-background
-        transition-opacity duration-200
-        ${loading ? "opacity-60 cursor-not-allowed" : "hover:opacity-90"}
+        transition-colors duration-300
+        ${loading ? "opacity-60 cursor-not-allowed" : ""}
       `}
     >
-      {loading ? (
-        <span className="flex items-center gap-2">
-          <span className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin" />
-          {label}…
-        </span>
-      ) : (
-        <>
-          {label}
-          <ArrowRight className="w-4 h-4" />
-        </>
-      )}
-    </motion.button>
+      <span className="flex items-center justify-center gap-2">
+        {loading ? (
+          <>
+            <span className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin" />
+            {label}…
+          </>
+        ) : (
+          <>
+            {label}
+            <ArrowRight className="w-4 h-4" />
+          </>
+        )}
+      </span>
+    </button>
   );
 }

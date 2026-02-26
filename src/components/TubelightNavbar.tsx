@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { LucideIcon, Home, Briefcase, User, Mail, LogIn, LayoutDashboard } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 interface NavItem {
     name: string;
@@ -29,6 +30,8 @@ export function TubelightNavbar({ items = defaultItems, className }: TubelightNa
     const [activeTab, setActiveTab] = useState(items[0].name);
     const [isMobile, setIsMobile] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const magnetic = useMagnetic(0.28);
+    const magneticBtn = useMagnetic(0.22);
 
     useEffect(() => {
         const handleResize = () => {
@@ -72,11 +75,12 @@ export function TubelightNavbar({ items = defaultItems, className }: TubelightNa
             <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50">
                 <Link
                     to={isLoggedIn ? "/dashboard" : "/auth"}
+                    {...magneticBtn}
                     className={cn(
-                        "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200",
+                        "btn-liquid flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold",
                         "border border-border/60 bg-background/60 backdrop-blur-md shadow-sm",
-                        "hover:bg-background hover:shadow-md hover:border-border",
-                        "text-foreground/80 hover:text-foreground"
+                        "text-foreground/80 hover:text-white",
+                        "transition-colors duration-300"
                     )}
                 >
                     {isLoggedIn
@@ -118,9 +122,11 @@ export function TubelightNavbar({ items = defaultItems, className }: TubelightNa
                                 key={item.name}
                                 to={item.url}
                                 onClick={(e) => handleNavClick(e, item)}
+                                {...magnetic}
                                 className={cn(
-                                    "relative cursor-pointer text-sm font-semibold px-5 py-2.5 rounded-full transition-colors",
+                                    "relative cursor-pointer text-sm font-semibold px-5 py-2.5 rounded-full",
                                     "text-foreground/80 hover:text-[#10b981]",
+                                    "transition-colors duration-200",
                                     isActive && "bg-[#10b981]/10 text-[#10b981]",
                                 )}
                             >

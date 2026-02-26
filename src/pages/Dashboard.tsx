@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { useCard3D } from "@/hooks/useCard3D";
 import {
   LogOut, Globe, Target, DollarSign, Users, Pencil, Check, X,
   ExternalLink, TrendingUp, ArrowUpRight, Rocket,
@@ -80,6 +81,8 @@ export default function Dashboard() {
     await supabase.auth.signOut();
     navigate("/");
   };
+
+  const card3D = useCard3D(8);
 
   if (loading) {
     return (
@@ -162,9 +165,19 @@ export default function Dashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:row-span-2 rounded-2xl p-6 flex flex-col"
-            style={{ background: "hsl(0, 0%, 10%)" }}
+            className="lg:row-span-2"
           >
+          <div
+            {...card3D}
+            className="h-full rounded-2xl p-6 flex flex-col relative overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, rgba(18,18,18,0.96) 0%, rgba(10,10,10,0.92) 100%)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              border: "1px solid rgba(255,255,255,0.10)",
+            }}
+          >
+            <div className="card-glare" />
             {/* Card header */}
             <div className="flex items-start justify-between mb-5">
               <div>
@@ -243,6 +256,7 @@ export default function Dashboard() {
                 <TrendingUp className="w-3.5 h-3.5" style={{ color: "#10b981" }} />
               </div>
             </div>
+          </div>
           </motion.div>
 
           {/* Card 2 — Recent Activity (col-span-2 on lg) */}
@@ -250,8 +264,19 @@ export default function Dashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.13, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-2 rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm p-6"
+            className="lg:col-span-2"
           >
+          <div
+            {...card3D}
+            className="rounded-2xl p-6 relative overflow-hidden"
+            style={{
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.64) 100%)",
+              border: "1px solid rgba(255,255,255,0.50)",
+            }}
+          >
+            <div className="card-glare" />
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-foreground flex items-center justify-center">
@@ -299,6 +324,7 @@ export default function Dashboard() {
                 {profile?.goal || "Set your goal below"}
               </span>
             </div>
+          </div>
           </motion.div>
 
           {/* Card 3 — Monthly Revenue Gauge */}
@@ -306,8 +332,18 @@ export default function Dashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.18, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm p-6"
           >
+          <div
+            {...card3D}
+            className="rounded-2xl p-6 relative overflow-hidden"
+            style={{
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.64) 100%)",
+              border: "1px solid rgba(255,255,255,0.50)",
+            }}
+          >
+            <div className="card-glare" />
             <div className="flex items-center justify-between mb-1">
               <h3 className="font-display font-semibold text-sm">Monthly Revenue</h3>
               <div className="flex gap-1">
@@ -339,6 +375,7 @@ export default function Dashboard() {
                   : "Edit below"}
               </span>
             </div>
+          </div>
           </motion.div>
 
           {/* Card 4 — Growth Roadmap */}
@@ -346,8 +383,18 @@ export default function Dashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.23, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm p-6"
           >
+          <div
+            {...card3D}
+            className="rounded-2xl p-6 relative overflow-hidden"
+            style={{
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.64) 100%)",
+              border: "1px solid rgba(255,255,255,0.50)",
+            }}
+          >
+            <div className="card-glare" />
             <div className="flex items-center gap-3 mb-5">
               <div className="w-9 h-9 rounded-xl bg-pastel-mint flex items-center justify-center">
                 <Rocket className="w-4 h-4 text-foreground/70" />
@@ -412,6 +459,7 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
+          </div>
           </motion.div>
 
         </div>

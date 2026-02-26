@@ -9,10 +9,14 @@ import BrandPhilosophy from "@/components/BrandPhilosophy";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import NeuralBackground from "@/components/NeuralBackground";
+import CursorTrail from "@/components/CursorTrail";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
+      <NeuralBackground />
+      <CursorTrail />
       {/* Floating background blobs */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div
