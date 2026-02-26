@@ -106,12 +106,12 @@ export default function Hero() {
                 onClick={() => playSound("click")}
                 className="group flex w-fit items-center gap-5 font-display text-sm md:text-base font-semibold text-foreground tracking-wide uppercase transition-all duration-300"
               >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full border border-foreground/10 group-hover:border-[#10b981] group-hover:bg-[#10b981]/5 transition-all duration-500 ease-out">
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:text-[#10b981] transition-all duration-500 ease-out" />
+                <div className="flex items-center justify-center w-12 h-12 rounded-full border border-foreground/10 group-hover:border-[#10b981] group-hover:bg-[#10b981]/5 transition-all duration-300 ease-out">
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:text-[#10b981] transition-all duration-300 ease-out" />
                 </div>
                 <span className="relative overflow-hidden pb-1">
                   Start Your Project
-                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#10b981] transform scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
+                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#10b981] transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 </span>
               </Link>
             </motion.div>
@@ -145,7 +145,7 @@ export default function Hero() {
                     className="w-1.5 h-1.5 rounded-full bg-[#10b981] shadow-[0_0_8px_rgba(16,185,129,0.8)]"
                   />
                   <span className="font-display font-semibold text-xs tracking-[0.15em] text-foreground/90 uppercase">
-                    System Online ◉
+                    System Online
                   </span>
                 </div>
               </motion.div>

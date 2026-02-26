@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useSound } from "@/hooks/useSound";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, MessageCircle } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -108,9 +108,9 @@ export default function ContactForm() {
               href="https://wa.me/6281342890650?text=Hi%20Neurial!%20I'd%20like%20to%20discuss%20a%20project."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-body text-sm text-foreground/60 hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-2 font-body text-sm text-foreground/60 hover:text-foreground transition-colors cursor-pointer"
             >
-              <span>💬</span>
+              <MessageCircle className="w-4 h-4 shrink-0" />
               <span className="underline">Chat on WhatsApp</span>
             </a>
           </motion.div>
@@ -125,7 +125,9 @@ export default function ContactForm() {
             className="space-y-4 relative z-50"
           >
             <div>
+              <label htmlFor="contact-name" className="sr-only">Your name</label>
               <Input
+                id="contact-name"
                 {...register("name")}
                 placeholder="Your name"
                 className="font-body text-sm rounded-xl border-border bg-card h-11"
@@ -135,7 +137,9 @@ export default function ContactForm() {
               )}
             </div>
             <div>
+              <label htmlFor="contact-email" className="sr-only">Email address</label>
               <Input
+                id="contact-email"
                 {...register("email")}
                 type="email"
                 placeholder="Email address"
@@ -146,7 +150,9 @@ export default function ContactForm() {
               )}
             </div>
             <div>
+              <label htmlFor="contact-message" className="sr-only">Tell us about your project</label>
               <Textarea
+                id="contact-message"
                 {...register("message")}
                 placeholder="Tell us about your project..."
                 rows={4}

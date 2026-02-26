@@ -67,6 +67,7 @@ const TestimonialsColumn = (props: {
                         {props.testimonials.map(({ text, image, name, role }, i) => (
                             <motion.div
                                 key={i}
+                                aria-hidden={index === 1 ? true : undefined}
                                 whileHover={{ scale: 1.02 }}
                                 onMouseEnter={() => playSound('pop')}
                                 className="p-8 rounded-[2rem] bg-card border border-border/50 shadow-sm shadow-black/5 hover:border-primary/20 transition-all duration-300 w-full"
@@ -78,6 +79,7 @@ const TestimonialsColumn = (props: {
                                     <img
                                         src={image}
                                         alt={name}
+                                        loading="lazy"
                                         className="h-10 w-10 rounded-full border border-border/50 object-cover"
                                     />
                                     <div className="flex flex-col">
@@ -134,12 +136,6 @@ export default function Testimonials() {
                 </div>
             </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
-        .masked-list {
-          mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-        }
-      `}} />
         </section>
     );
 }

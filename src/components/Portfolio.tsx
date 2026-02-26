@@ -64,7 +64,7 @@ export default function Portfolio() {
                                 glowColor={project.glow}
                                 customSize
                                 onMouseEnter={() => playSound('pop')}
-                                className="group bg-card overflow-hidden card-lift cursor-pointer transition-all duration-300"
+                                className="group bg-card overflow-hidden card-lift cursor-default transition-all duration-300"
                             >
                                 {/* Color preview area */}
                                 <div className={`${project.bg} h-40 relative`}>

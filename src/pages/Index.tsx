@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import TubelightNavbar from "@/components/TubelightNavbar";
 import Hero from "@/components/Hero";
@@ -44,6 +43,7 @@ const Index = () => {
       </main>
       <ContactForm />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

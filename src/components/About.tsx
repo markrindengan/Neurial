@@ -82,7 +82,7 @@ export default function About() {
                 glowColor={stat.glow}
                 customSize
                 onMouseEnter={() => playSound('hover')}
-                className={`${stat.bg} p-5 flex flex-col justify-between min-h-[120px] transition-all duration-300 hover:scale-105`}
+                className={`${stat.bg} p-5 flex flex-col justify-between min-h-[120px] transition-all duration-300 hover:scale-[1.02]`}
               >
                 <p className="font-display text-2xl sm:text-3xl font-extrabold">
                   {stat.value}

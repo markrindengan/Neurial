@@ -290,6 +290,12 @@
   }
 }
 
+/* Testimonials infinite scroll mask — fades edges top and bottom */
+.masked-list {
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
 /* Ensure ElevenLabs widget renders above all other content */
 elevenlabs-convai {
   z-index: 9998 !important;
