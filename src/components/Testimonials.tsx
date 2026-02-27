@@ -68,9 +68,8 @@ const TestimonialsColumn = (props: {
                             <motion.div
                                 key={i}
                                 aria-hidden={index === 1 ? true : undefined}
-                                whileHover={{ scale: 1.02 }}
                                 onMouseEnter={() => playSound('pop')}
-                                className="p-8 rounded-[2rem] bg-card border border-border/50 shadow-sm shadow-black/5 hover:border-primary/20 transition-all duration-300 w-full"
+                                className="p-8 rounded-[2rem] bg-card border border-border/50 shadow-sm shadow-black/5 hover:border-primary/20 hover:shadow-md transition-all duration-200 w-full cursor-default"
                             >
                                 <p className="font-body text-sm text-foreground/80 leading-relaxed mb-6 italic">
                                     "{text}"

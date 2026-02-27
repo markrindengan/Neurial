@@ -17,7 +17,7 @@ export default function BrandPhilosophy() {
                         className="md:col-span-5 flex justify-center md:justify-end"
                     >
                         <div className="relative group">
-                            <div className="absolute inset-0 bg-emerald-500/20 rounded-[2rem] blur-2xl group-hover:bg-emerald-500/30 transition-colors duration-500" />
+                            <div className="absolute inset-0 bg-emerald-500/20 rounded-[2rem] blur-2xl group-hover:bg-emerald-500/30 transition-colors duration-300" />
                             <img
                                 src="/neurial-mark.png"
                                 alt="Neurial Logo Mark"
@@ -39,7 +39,7 @@ export default function BrandPhilosophy() {
                             Brand Philosophy
                         </div>
 
-                        <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight !bg-clip-text !text-transparent bg-gradient-to-r from-emerald-400 to-teal-200">
+                        <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight !bg-clip-text !text-transparent bg-gradient-to-r from-emerald-400 to-teal-300">
                             The Soul of Neurial
                         </h2>
 

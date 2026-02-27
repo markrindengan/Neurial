@@ -73,7 +73,7 @@ export default function ContactForm() {
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="font-body text-xs text-foreground/50 hover:text-foreground underline transition-colors"
+              className="font-body text-xs text-foreground/50 hover:text-foreground underline transition-colors cursor-pointer"
             >
               Send another message
             </button>

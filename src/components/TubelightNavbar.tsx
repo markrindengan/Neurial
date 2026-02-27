@@ -113,7 +113,7 @@ export function TubelightNavbar({ items = defaultItems, className }: TubelightNa
                     className,
                 )}
             >
-                <div className="flex items-center gap-3 bg-background/5 border border-border/50 backdrop-blur-xl py-1.5 px-2 rounded-full shadow-lg">
+                <div className="flex items-center gap-3 bg-background/80 border border-border/50 backdrop-blur-xl py-1.5 px-2 rounded-full shadow-lg">
                     {items.map((item) => {
                         const Icon = item.icon;
                         const isActive = activeTab === item.name;

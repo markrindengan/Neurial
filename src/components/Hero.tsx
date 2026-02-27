@@ -79,7 +79,7 @@ export default function Hero() {
           {/* Left — Text */}
           <div className="text-left w-full max-w-2xl lg:pr-10 xl:pr-16">
             <motion.div {...fadeUp(0.05)} className="mb-8">
-              <span className="font-display text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground/60 inline-flex items-center gap-3">
+              <span className="font-display text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground inline-flex items-center gap-3">
                 <span className="w-6 h-[1px] bg-[#10b981]/50"></span>
                 AI Development Studio — Indonesia
               </span>
@@ -128,8 +128,12 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
+            role="button"
+            tabIndex={0}
+            aria-label="Interactive robot mascot — click to activate"
             className="relative w-full h-[400px] sm:h-[500px] lg:h-[580px] flex items-center justify-center cursor-pointer select-none rounded-3xl overflow-hidden group"
             onClick={handleRobotClick}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleRobotClick(); } }}
           >
             {/* Clean soft radial gradient background in pale pastel */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(241,245,249,1)_0%,rgba(248,250,252,0)_70%)] z-0" />
@@ -181,7 +185,7 @@ export default function Hero() {
             glowColor="lavender"
             customSize
             onMouseEnter={() => playSound("hover")}
-            className="bg-pastel-lavender p-5 flex flex-col justify-between min-h-[160px] cursor-default hover:scale-[1.02] hover:-rotate-1"
+            className="bg-pastel-lavender p-5 flex flex-col justify-between min-h-[160px] cursor-default hover:scale-[1.02]"
           >
             <div className="flex gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center"><Bot className="w-4 h-4 text-foreground/70" /></div>
@@ -198,7 +202,7 @@ export default function Hero() {
             glowColor="mint"
             customSize
             onMouseEnter={() => playSound("hover")}
-            className="bg-pastel-mint p-5 flex flex-col justify-between min-h-[160px] cursor-default hover:scale-[1.02] hover:rotate-1"
+            className="bg-pastel-mint p-5 flex flex-col justify-between min-h-[160px] cursor-default hover:scale-[1.02]"
           >
             <Sparkles className="w-5 h-5 text-foreground/40" />
             <div>
@@ -211,7 +215,7 @@ export default function Hero() {
             glowColor="blue"
             customSize
             onMouseEnter={() => playSound("hover")}
-            className="bg-pastel-blue p-5 flex flex-col justify-between min-h-[160px] col-span-2 md:col-span-1 cursor-default hover:scale-[1.02] hover:-translate-y-1"
+            className="bg-pastel-blue p-5 flex flex-col justify-between min-h-[160px] col-span-2 md:col-span-1 cursor-default hover:scale-[1.02]"
           >
             <Zap className="w-5 h-5 text-foreground/40" />
             <div>
@@ -224,7 +228,7 @@ export default function Hero() {
             glowColor="yellow"
             customSize
             onMouseEnter={() => playSound("hover")}
-            className="bg-pastel-yellow p-5 flex flex-col justify-between min-h-[160px] cursor-default hover:scale-[1.02] hover:-rotate-[1.5deg]"
+            className="bg-pastel-yellow p-5 flex flex-col justify-between min-h-[160px] cursor-default hover:scale-[1.02]"
           >
             <div className="flex -space-x-2">
               {bentoDots.map((l) => (
